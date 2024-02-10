@@ -47,3 +47,14 @@ button {
 .weather-info {
     margin-top: 20px;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+```
