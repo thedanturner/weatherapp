@@ -58,23 +58,3 @@ footer {
     padding: 10px 0;
 }
 
-.background-rain
-{
-    background-image: url('https://images.freeimages.com/images/large-previews/91e/rain-1183929.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh; 
-    margin: 0; 
-    padding: 0; 
-}
-.background-clouds
-{
-    background-image: url('https://images.freeimages.com/images/large-previews/294/partly-cloudy-1173077.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh; 
-    margin: 0; 
-    padding: 0; 
-}
