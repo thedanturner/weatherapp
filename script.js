@@ -30,19 +30,23 @@ function fetchWeather(location) {
         .then(response => response.json())
         .then(data => {
             locationElement.textContent = data.name;
-            temperatureElement.textContent = `${Math.round(data.main.temp)}°C`;
-            mainElement.textContent = data.weather[0].main;
-            descriptionElement.textContent = data.weather[0].description;
-            iconElement.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+                temperatureElement.textContent = `${Math.round(data.main.temp)}°C`;
+                mainElement.textContent = data.weather[0].main;
+                descriptionElement.textContent = data.weather[0].description;
+                iconElement.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
 
-            if (data.weather[0].main === 'Clouds') {
-                document.body.style.backgroundImage = 'url(https://images.freeimages.com/images/large-previews/294/partly-cloudy-1173077.jpg)';
-            } else if (data.weather[0].main === 'Rain') {
-                document.body.style.backgroundImage = 'url(https://images.freeimages.com/images/large-previews/9f6/rain-1381186.jpg)';
-            } else {
-                document.body.style.backgroundImage = 'url(https://www.saga.co.uk/contentlibrary/saga/publishing/verticals/technology/apps/shutterstock_240459751.jpg)';
-            }
-        })
+                if (data.weather[0].main === 'Clouds') {
+                    document.body.style.backgroundImage = 'url(https://images.freeimages.com/images/large-previews/294/partly-cloudy-1173077.jpg)';
+                } else if (data.weather[0].main === 'Rain') {
+                    document.body.style.backgroundImage = 'url(https://images.freeimages.com/images/large-previews/9f6/rain-1381186.jpg)';
+                } else if (data.weather[0].main === 'Clear') {
+                    document.body.style.backgroundImage = 'url(https://th.bing.com/th/id/OIP.cUJMV5xpK0w6B_CAPOwL6gHaEo?rs=1&pid=ImgDetMain)';  
+                } else if (data.weather[0].main === 'Snow') {
+                    document.body.style.backgroundImage = 'url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/rZJIMvhmliwmde8a6/videoblocks-snowfall-on-the-background-of-blurred-forest-slow-motion-snow-falling-down-against-blurred-background-winter-holidays-season_szhypw86q_thumbnail-1080_01.png)'; 
+                } else {
+                    document.body.style.backgroundImage = 'url(https://www.saga.co.uk/contentlibrary/saga/publishing/verticals/technology/apps/shutterstock_240459751.jpg)';
+                }
+            })
         .catch(error => {
             console.error('Error fetching weather data:', error);
             locationElement.textContent = 'Error fetching weather data';
