@@ -40,7 +40,7 @@ function fetchWeather(location) {
                 } else if (data.weather[0].main === 'Rain') {
                     document.body.style.backgroundImage = 'url(https://www.publicdomainpictures.net/pictures/70000/velka/background-with-rain.jpg)';
                 } else if (data.weather[0].main === 'Clear') {
-                    document.body.style.backgroundImage = 'url(https://th.bing.com/th/id/OIP.cUJMV5xpK0w6B_CAPOwL6gHaEo?rs=1&pid=ImgDetMain)';  
+                    document.body.style.backgroundImage = 'url(https://www.photos-public-domain.com/wp-content/uploads/2011/02/bright-sun-in-blue-sky.jpg)';  
                 } else if (data.weather[0].main === 'Snow') {
                     document.body.style.backgroundImage = 'url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/rZJIMvhmliwmde8a6/videoblocks-snowfall-on-the-background-of-blurred-forest-slow-motion-snow-falling-down-against-blurred-background-winter-holidays-season_szhypw86q_thumbnail-1080_01.png)'; 
                 } else if (data.weather[0].main === 'Mist') {
