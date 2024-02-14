@@ -1,4 +1,3 @@
-//const mysql = require('mysql');
 const apiKey = 'd8ab63bd9e5758217288b4ee51244e67';
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
@@ -57,34 +56,4 @@ function fetchWeather(location) {
             locationElement.textContent = 'Error fetching weather data';
         });
     }
-        // Create a connection to the database
-        const connection = mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: '',
-            database: 'weatherapp'
-        });
 
-        // Connect to the database
-        connection.connect((error) => {
-            if (error) {
-                console.error('Error connecting to the database:', error);
-            } else {
-                console.log('Connected to the database');
-            }
-        });
-
-        // Insert data into the weather table
-        const insertQuery = `INSERT INTO history (location, temperature, main, description, icon) VALUES (?, ?, ?, ?, ?)`;
-        const values = [locationElement.textContent, temperatureElement.textContent, mainElement.textContent, descriptionElement.textContent, iconElement.src];
-
-        connection.query(insertQuery, values, (error) => {
-            if (error) {
-                console.error('Error inserting data into the weather table:', error);
-            } else {
-                console.log('Data inserted successfully');
-            }
-        });
-
-        // Close the database connection
-        connection.end();
