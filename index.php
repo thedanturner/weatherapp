@@ -13,15 +13,18 @@
         <input type="text" id="locationInput" placeholder="Enter a city">
         <button id="searchButton">Search</button>
         <div class="weather-info">
-            <h2 id="location"></h2>
-            <h2 id="temperature"></h2>
-            <img id="icon" src="" alt=>
-            <h2 id="main"></h2>
-            <p id="description"></p>
+                <h2 id="location"></h2>
+                <h2 id="temperature"></h2>
+                <img id="icon" src="" alt="">
+                <h2 id="main"></h2>
+                <p id="description"></p>
         </div>
     </div>
     <div class="history">
         <h2>History</h2>
+        <?php
+        include 'history.php';
+        ?>
     </div>
 
     <footer class="footer">
