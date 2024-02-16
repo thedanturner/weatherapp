@@ -40,6 +40,7 @@ function renderHistory(location) {
                     <h3>${historyData.location}</h3>
                     <p>${historyData.temperature}°C</p>
                     <p>${historyData.main}</p>
+                    <p>${historyData.date}</p>
                 `;
                 historyElement.appendChild(historyItem);
             });
