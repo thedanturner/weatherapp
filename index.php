@@ -20,11 +20,8 @@
                 <p id="description"></p>
         </div>
     </div>
-    <div class="history">
+    <div class="history" id="history">
         <h2>History</h2>
-        <?php
-        include 'history.php';
-        ?>
     </div>
 
     <footer class="footer">
