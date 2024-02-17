@@ -68,15 +68,15 @@ footer {
     margin: 0 auto;
     text-align: center;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.068); 
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* background-color: rgba(255, 255, 255, 0.068);  */
+    /* border-radius: 10px; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
     margin-top: 105px;
 }
 
 .history p {
     font-size: 20px;
-    color: #1d4774;
+    color: #000000;
 }
 .history {
     display: flex;
