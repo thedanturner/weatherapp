@@ -1,29 +1,30 @@
 <?php
 require_once 'connection.php';
+ 
+header('Content-Type: application/json');
+ 
 $conn = new mysqli($hostname, $username, $password, $database);
-if($conn->connect_error) {
-    exit('Could not connect');
+if ($conn->connect_error) {
+    echo json_encode(['error' => 'Could not connect to the database']);
+    exit;
 }
-$query = "SELECT * FROM history";
+ 
+// Assuming $location is safely retrieved and sanitized from a GET or POST parameter
+// For example, using a GET request
+$location = isset($_GET['location']) ? $conn->real_escape_string($_GET['location']) : '';
+ 
+$query = "SELECT * FROM history WHERE location = '$location'";
 $result = $conn->query($query);
-if($result->num_rows > 0) {
-        echo "<table>";
-        echo "<tr>";
-        echo "<th>Location</th>";
-        echo "<th>Temperature</th>";
-        echo "<th>Weather</th>";
-        echo "<th>Sky</th>";
-        echo "<th>Search Date</th>";
-        echo "</tr>";
-        while($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["location"] . "</td>";
-                echo "<td>" . $row["temperature"] . "</td>";
-                $iconUrl = "http://openweathermap.org/img/wn/" . $row["icon"] . ".png";
-                echo "<td><img src='" . $iconUrl . "'></td>";
-                echo "<td>" . $row["main"] . "</td>";
-                echo "<td>" . $row["date"] . "</td>";
-                echo "</tr>";
-        }
-        echo "</table>";
+ 
+if ($result && $result->num_rows > 0) {
+    $rows = [];
+    while ($row = $result->fetch_assoc()) {
+        $rows[] = $row;
+    }
+    echo json_encode($rows);
+} else {
+    echo json_encode(['error' => 'No data found for the specified location']);
 }
+ 
+$conn->close();
+?>

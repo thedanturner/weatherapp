@@ -15,6 +15,8 @@ searchButton.addEventListener('click', async() => {
         const weatherData = await fetchWeather(location);
         updateHistory(weatherData);
         console.log(weatherData);
+        console.log(location);
+        renderHistory(location);
 
     } else {
         locationElement.textContent = 'Please enter a location';
@@ -23,6 +25,27 @@ searchButton.addEventListener('click', async() => {
         iconElement.src = '';
     }
 });
+
+function renderHistory(location) {
+    fetch(`history.php?location=${encodeURIComponent(location)}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            const historyElement = document.getElementById('history');
+            historyElement.innerHTML = '';
+            data.forEach(historyData => {
+                const historyItem = document.createElement('div');
+                historyItem.innerHTML = `
+                    <img src="http://openweathermap.org/img/wn/${historyData.icon}.png" alt="${historyData.main}">
+                    <h3>${historyData.location}</h3>
+                    <p>${historyData.temperature}°C</p>
+                    <p>${historyData.main}</p>
+                    <p>${historyData.date}</p>
+                `;
+                historyElement.appendChild(historyItem);
+            });
+        });
+    }
 
 function updateHistory(historyData) {
     const xmlhttp = new XMLHttpRequest();
